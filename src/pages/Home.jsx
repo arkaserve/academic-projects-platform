@@ -100,20 +100,20 @@ export default function Home() {
         <div className="absolute bottom-10 left-10 w-80 h-80 rounded-full bg-brand-orange/8 blur-3xl pointer-events-none" />
 
         <div className="w-full pl-4 sm:pl-10 lg:pl-16 pr-4 lg:pr-0 pt-20">
-          <div className="grid lg:grid-cols-[480px_1fr] gap-10 items-center min-h-[calc(100vh-80px)]">
+          <div className="grid lg:grid-cols-[1fr_1fr] xl:grid-cols-[520px_1fr] gap-10 items-center min-h-[calc(100vh-80px)]">
 
             {/* ── LEFT ── */}
             <div className="flex flex-col justify-center py-10 lg:min-h-[calc(100vh-100px)]">
-              <p className="text-amber-400 text-lg font-semibold mb-8 leading-snug max-w-sm -mt-10">
+              <p className="text-amber-400 text-sm sm:text-lg font-semibold mb-5 sm:mb-8 leading-snug max-w-sm -mt-4 sm:-mt-10">
                 Need expert guidance for your academic projects?
               </p>
 
-              <h1 className="text-3xl sm:text-5xl font-extrabold text-white leading-tight mb-6">
-                <span className="sm:whitespace-nowrap">Build Real Projects.</span><br />
+              <h1 className="text-3xl sm:text-4xl xl:text-5xl font-extrabold text-white leading-tight mb-6">
+                Build Real Projects.<br />
                 <span className="gradient-text">Ace Your Viva.</span>
               </h1>
 
-              <p className="text-white/65 text-lg leading-relaxed mb-8 max-w-lg line-clamp-2">
+              <p className="text-white/65 text-sm sm:text-lg leading-relaxed mb-5 sm:mb-8 max-w-lg line-clamp-2">
                 Complete source code, step-by-step guides, and curated viva Q&amp;A —
                 everything you need to ace your final year project.
               </p>
@@ -138,7 +138,7 @@ export default function Home() {
 
               {/* Domain badges — prominent icon cards */}
               <p className="text-[10px] font-bold uppercase tracking-widest text-white/35 mb-1.5">Select Domain</p>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-10">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3 mb-10">
                 {[
                   { label: 'CSE',        icon: Code2,    color: 'from-violet-500/20 to-purple-600/10',  border: 'border-violet-400/30',  iconCol: 'text-violet-300'  },
                   { label: 'IT',         icon: Globe,    color: 'from-cyan-500/20 to-sky-600/10',       border: 'border-cyan-400/30',    iconCol: 'text-cyan-300'    },
@@ -149,22 +149,23 @@ export default function Home() {
                 ].map(({ label, icon: Icon, color, border, iconCol }) => (
                   <div
                     key={label}
-                    className={`flex items-center gap-3 px-4 py-3 rounded-2xl bg-gradient-to-br ${color} border ${border} hover:scale-105 transition-all duration-200 group cursor-default`}
+                    className={`flex items-center gap-2 sm:gap-3 px-2.5 sm:px-4 py-2.5 sm:py-3 rounded-2xl bg-gradient-to-br ${color} border ${border} hover:scale-105 transition-all duration-200 group cursor-default min-w-0`}
                   >
-                    <div className="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-white/20 transition-colors">
-                      <Icon size={18} className={iconCol} />
+                    <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-white/20 transition-colors">
+                      <Icon size={14} className={`${iconCol} sm:hidden`} />
+                      <Icon size={18} className={`${iconCol} hidden sm:block`} />
                     </div>
-                    <p className="text-white font-extrabold text-sm whitespace-nowrap">{label}</p>
+                    <p className="text-white font-extrabold text-xs sm:text-sm truncate">{label}</p>
                   </div>
                 ))}
               </div>
 
               {/* CTAs */}
-              <div className="flex flex-col sm:flex-row flex-wrap gap-3 mb-10">
-                <Link to="/projects" className="btn-primary text-base px-8 py-3.5 justify-center">
-                  Explore Projects <ArrowRight size={17} />
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3 mb-8 sm:mb-10">
+                <Link to="/projects" className="btn-primary text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-3.5 justify-center">
+                  Explore Projects <ArrowRight size={16} />
                 </Link>
-                <Link to="/about" className="btn-secondary text-base px-8 py-3.5 justify-center">
+                <Link to="/about" className="btn-secondary text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-3.5 justify-center">
                   How It Works
                 </Link>
               </div>
