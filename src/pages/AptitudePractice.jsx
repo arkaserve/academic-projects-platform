@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Clock, BookOpen, Code2, Brain, Calculator, AlignLeft, ChevronRight, Zap } from 'lucide-react'
+import { useSEO } from '../hooks/useSEO'
 
 const COMPANIES = [
   {
@@ -146,6 +147,11 @@ const COMPANIES = [
 ]
 
 export default function AptitudePractice() {
+  useSEO({
+    title: 'Aptitude Practice for Campus Placements',
+    description: 'Practice full-length mock tests for TCS NQT, Infosys OA, Wipro NLTH, Cognizant CCAT, Capgemini, Accenture, HCL, and Tech Mahindra campus placement drives.',
+    path: '/aptitude-practice',
+  })
   return (
     <div className="min-h-screen bg-slate-50">
 

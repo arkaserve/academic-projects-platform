@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react'
 import { Link } from 'react-router-dom'
+import { useSEO } from '../hooks/useSEO'
 import {
   Check, ChevronDown, ChevronRight, Zap, Search,
   Trophy, Star, RefreshCw,
@@ -163,6 +164,11 @@ function FitCard({ project, matchData, rank }) {
 // ── Main Page ─────────────────────────────────────────────────────────────────
 
 export default function ProjectFit() {
+  useSEO({
+    title: 'Find Projects by Your Skills',
+    description: 'Select the technologies you know and get matched with the perfect final year engineering project. Powered by Jaccard similarity scoring.',
+    path: '/project-fit',
+  })
   const [selected, setSelected]       = useState(new Set())
   const [showResults, setShowResults] = useState(false)
   const [filterFit, setFilterFit]     = useState('all')

@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react'
 import { Link } from 'react-router-dom'
+import { useSEO } from '../hooks/useSEO'
 import {
   FileText, Download, Copy, Check, Link2, Zap,
   ArrowRight, Trash2, ChevronDown, ChevronUp,
@@ -292,6 +293,11 @@ function injectPrintCSS() {
 // ── Main ──────────────────────────────────────────────────────────────────────
 
 export default function ResumeBuilder() {
+  useSEO({
+    title: 'Engineering Resume Builder',
+    description: 'Build an ATS-friendly engineering resume in minutes. Tailored templates for B.Tech and M.Tech freshers. Free to use — no sign-up required.',
+    path: '/resume-builder',
+  })
   const initial = loadFromHash()
   const [mode,    setMode]    = useState(initial?._mode || 'fresher')
   const [fresher, setFresher] = useState(initial?._mode === 'fresher' ? { ...DEFAULT_FRESHER, ...initial } : DEFAULT_FRESHER)

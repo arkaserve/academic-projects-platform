@@ -139,9 +139,10 @@ export default function Navbar() {
     { to: '/internal-marks',     label: 'Marks' },
     { to: '/hr-prep',            label: 'HR Prep' },
     { to: '/resume-builder',     label: 'Resume' },
-    { to: '/aptitude-practice',  label: 'Aptitude' },
-    { to: '/about',              label: 'About' },
-    { to: '/pricing',            label: 'Pricing' },
+    { to: '/aptitude-practice',                label: 'Aptitude' },
+    { to: 'https://arkaserve.com/#about',     label: 'About',   external: true },
+    { to: 'https://arkaserve.com/careers',    label: 'Careers', external: true },
+    { to: '/pricing',                          label: 'Pricing' },
     { to: '/contact',            label: 'Contact' },
   ]
 
@@ -165,14 +166,14 @@ export default function Navbar() {
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-orange via-amber-500 to-orange-600 flex items-center justify-center shadow-lg shadow-orange-900/40 group-hover:shadow-orange-500/40 group-hover:scale-105 transition-all duration-200">
               <Code2 size={16} className="text-white" strokeWidth={2.5} />
             </div>
-            <span className="font-extrabold text-[17px] tracking-tight leading-none">
-              <span className="text-white">Academi</span>
-              <span className="text-brand-orange">Code</span>
+            <span className="font-extrabold text-[15px] tracking-tight leading-none">
+              <span className="text-white/70">Prep by </span>
+              <span className="text-brand-orange">Arkaserve</span>
             </span>
           </Link>
 
           {/* ── Nav links — centered absolutely ── */}
-          <div className="hidden xl:flex items-center gap-0 absolute left-1/2 -translate-x-1/2">
+          <div className="hidden lg:flex items-center gap-0 absolute left-1/2 -translate-x-1/2">
 
             {/* Home */}
             <NavLink
@@ -215,28 +216,40 @@ export default function Navbar() {
 
             {/* Rest of nav links (skip Home) */}
             {navLinks.filter(l => l.to !== '/').map(l => (
-              <NavLink
-                key={l.to}
-                to={l.to}
-                end={l.to === '/'}
-                className={({ isActive }) =>
-                  `relative flex-shrink-0 px-2.5 py-1 rounded-lg text-[13px] font-semibold transition-all duration-150 whitespace-nowrap ${
-                    isActive ? 'text-white bg-white/10' : 'text-white/80 hover:text-white hover:bg-white/10'
-                  }`
-                }
-              >
-                {({ isActive }) => (
-                  <>
-                    {l.label}
-                    {isActive && <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-0.5 bg-brand-orange rounded-full" />}
-                  </>
-                )}
-              </NavLink>
+              l.external ? (
+                <a
+                  key={l.to}
+                  href={l.to}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative flex-shrink-0 px-2.5 py-1 rounded-lg text-[13px] font-semibold transition-all duration-150 whitespace-nowrap text-white/80 hover:text-white hover:bg-white/10"
+                >
+                  {l.label}
+                </a>
+              ) : (
+                <NavLink
+                  key={l.to}
+                  to={l.to}
+                  end={l.to === '/'}
+                  className={({ isActive }) =>
+                    `relative flex-shrink-0 px-2.5 py-1 rounded-lg text-[13px] font-semibold transition-all duration-150 whitespace-nowrap ${
+                      isActive ? 'text-white bg-white/10' : 'text-white/80 hover:text-white hover:bg-white/10'
+                    }`
+                  }
+                >
+                  {({ isActive }) => (
+                    <>
+                      {l.label}
+                      {isActive && <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-0.5 bg-brand-orange rounded-full" />}
+                    </>
+                  )}
+                </NavLink>
+              )
             ))}
           </div>
 
           {/* ── Right section ── */}
-          <div className="hidden xl:flex items-center gap-2 flex-shrink-0 ml-auto">
+          <div className="hidden lg:flex items-center gap-2 flex-shrink-0 ml-auto">
             {isLoggedIn ? (
               <div className="flex items-center gap-2">
                 <div className="flex items-center gap-2 pl-2 pr-3 py-1.5 rounded-xl bg-white/5 border border-white/10">
@@ -268,7 +281,7 @@ export default function Navbar() {
           </div>
 
           {/* ── Mobile/tablet: auth pill + hamburger ── */}
-          <div className="xl:hidden flex items-center gap-2 ml-auto">
+          <div className="lg:hidden flex items-center gap-2 ml-auto">
             {isLoggedIn ? (
               <div className="w-7 h-7 rounded-full bg-gradient-to-br from-brand-teal to-cyan-600 flex items-center justify-center text-white text-[10px] font-bold">
                 {initials}
@@ -292,7 +305,7 @@ export default function Navbar() {
 
       {/* ── Mobile drawer ── */}
       {open && (
-        <div className="xl:hidden bg-[#0B1D3A] border-t border-white/8 px-4 py-3 space-y-0.5 shadow-2xl max-h-[80vh] overflow-y-auto">
+        <div className="lg:hidden bg-[#0B1D3A] border-t border-white/8 px-4 py-3 space-y-0.5 shadow-2xl max-h-[80vh] overflow-y-auto">
           {/* Home */}
           <NavLink
             to="/"
@@ -345,20 +358,32 @@ export default function Navbar() {
           ))}
 
           {navLinks.filter(l => l.to !== '/').map(l => (
-            <NavLink
-              key={l.to}
-              to={l.to}
-              end={l.to === '/'}
-              className={({ isActive }) =>
-                `flex items-center px-3 py-2.5 rounded-xl text-sm font-medium transition ${
-                  isActive
-                    ? 'text-white bg-white/10 border-l-2 border-brand-orange pl-[10px]'
-                    : 'text-white/60 hover:text-white hover:bg-white/7'
-                }`
-              }
-            >
-              {l.label}
-            </NavLink>
+            l.external ? (
+              <a
+                key={l.to}
+                href={l.to}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center px-3 py-2.5 rounded-xl text-sm font-medium transition text-white/60 hover:text-white hover:bg-white/7"
+              >
+                {l.label}
+              </a>
+            ) : (
+              <NavLink
+                key={l.to}
+                to={l.to}
+                end={l.to === '/'}
+                className={({ isActive }) =>
+                  `flex items-center px-3 py-2.5 rounded-xl text-sm font-medium transition ${
+                    isActive
+                      ? 'text-white bg-white/10 border-l-2 border-brand-orange pl-[10px]'
+                      : 'text-white/60 hover:text-white hover:bg-white/7'
+                  }`
+                }
+              >
+                {l.label}
+              </NavLink>
+            )
           ))}
 
           <div className="pt-3 border-t border-white/8 mt-2 space-y-1">

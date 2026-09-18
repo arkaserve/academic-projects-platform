@@ -1,14 +1,20 @@
 import { Link } from 'react-router-dom'
 import { Code2, BookOpen, Mic2, Users, Target, ArrowRight } from 'lucide-react'
+import { useSEO } from '../hooks/useSEO'
 
 export default function About() {
+  useSEO({
+    title: 'About Prep by Arkaserve',
+    description: 'Learn about Prep by Arkaserve — built to help engineering students ace their final year projects and campus placements with real source code and guided prep.',
+    path: '/about',
+  })
   return (
     <div className="min-h-screen">
       {/* Hero */}
       <div className="hero-bg py-10 pt-20 text-center">
         <div className="max-w-3xl mx-auto px-4">
           <h1 className="text-2xl sm:text-3xl font-extrabold text-white mb-2">
-            About <span className="gradient-text">AcademiCode</span>
+            About <span className="gradient-text">Prep by Arkaserve</span>
           </h1>
           <p className="text-white/70 text-sm max-w-xl mx-auto">
             We're on a mission to make academic project work less stressful and more rewarding for engineering students across India.
@@ -33,7 +39,7 @@ export default function About() {
                 with real implementation.
               </p>
               <p className="text-slate-600 leading-relaxed mb-6">
-                AcademiCode was created to fix that. Every project on our platform comes with clean,
+                Prep by Arkaserve was created to fix that. Every project on our platform comes with clean,
                 working source code, a plain-English explanation of every concept, and viva questions
                 curated from real university examinations.
               </p>

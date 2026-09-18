@@ -1328,7 +1328,7 @@ generate_qr("Hello, World!",        "text_qr.png")
 vcard = """BEGIN:VCARD
 VERSION:3.0
 FN:John Doe
-ORG:AcademiCode
+ORG:Prep by Arkaserve
 TEL:+919999999999
 EMAIL:john@example.com
 END:VCARD"""

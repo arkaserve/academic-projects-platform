@@ -1,4 +1,5 @@
 import { Mail, Phone, Send, Clock, MapPin, Wrench, BookOpen, Code2, Lightbulb } from 'lucide-react'
+import { useSEO } from '../hooks/useSEO'
 
 const EMAIL = 'anil.mikkili@gmail.com'
 const PHONE = '+91 98663 76367'
@@ -12,6 +13,11 @@ const HELP_ITEMS = [
 ]
 
 export default function Contact() {
+  useSEO({
+    title: 'Contact Us',
+    description: 'Get in touch with the Prep by Arkaserve team for project queries, custom project requests, or any feedback. We respond within 24 hours.',
+    path: '/contact',
+  })
   return (
     <div className="min-h-screen bg-slate-50">
 

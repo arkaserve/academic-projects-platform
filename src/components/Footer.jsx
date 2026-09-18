@@ -121,14 +121,18 @@ export default function Footer() {
             <p className="font-semibold text-white mb-4">Platform</p>
             <ul className="space-y-2">
               {[
-                ['About Us',    '/about'],
+                ['About Us',    null,              'https://arkaserve.com/#about'],
+                ['Careers',     null,              'https://arkaserve.com/careers'],
                 ['Pricing',     '/pricing'],
                 ['Contact',     '/contact'],
                 ['Projects',    '/projects'],
                 ['Resume',      '/resume-builder'],
-              ].map(([label, to]) => (
+              ].map(([label, to, href]) => (
                 <li key={label}>
-                  <Link to={to} className="text-white/55 hover:text-brand-orange text-sm transition">{label}</Link>
+                  {href
+                    ? <a href={href} target="_blank" rel="noopener noreferrer" className="text-white/55 hover:text-brand-orange text-sm transition">{label}</a>
+                    : <Link to={to} className="text-white/55 hover:text-brand-orange text-sm transition">{label}</Link>
+                  }
                 </li>
               ))}
             </ul>
@@ -138,7 +142,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-white/10 mt-12 pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
-            <p className="text-white/40 text-xs">© {new Date().getFullYear()} AcademiCode · All rights reserved</p>
+            <p className="text-white/40 text-xs">© {new Date().getFullYear()} Prep by Arkaserve · All rights reserved</p>
             <VisitorCounter />
           </div>
           <p className="text-white/30 text-xs">Built with ❤️ for engineering students</p>

@@ -49,7 +49,7 @@ export function usePayment({ token, user, onSuccess }) {
           key:         order.key_id,
           amount:      order.amount,
           currency:    order.currency,
-          name:        'AcademiCode',
+          name:        'Prep by Arkaserve',
           description: order.plan_label,
           order_id:    order.order_id,
           prefill: {

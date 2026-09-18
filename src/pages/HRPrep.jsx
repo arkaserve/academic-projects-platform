@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useSEO } from '../hooks/useSEO'
 import {
   User, Smile, Briefcase, Users, Zap, Target, HelpCircle,
   ChevronDown, ChevronUp, Copy, Check, ArrowRight, Lightbulb,
@@ -523,6 +524,11 @@ function QuestionItem({ q, index }) {
 // ── Main Page ──────────────────────────────────────────────────────────────────
 
 export default function HRPrep() {
+  useSEO({
+    title: 'HR Interview Preparation',
+    description: 'Practice 100+ HR interview questions with smart, structured sample answers. Covers self-introduction, strengths, teamwork, situational questions, and salary negotiation for campus placements.',
+    path: '/hr-prep',
+  })
   const [activeCategory, setActiveCategory] = useState('intro')
   const category = CATEGORIES.find(c => c.id === activeCategory)
   const totalQ = CATEGORIES.reduce((a, c) => a + c.questions.length, 0)

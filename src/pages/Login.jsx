@@ -42,7 +42,7 @@ export default function Login() {
           <div className="p-2 bg-brand-teal/20 rounded-xl">
             <BookOpen className="w-7 h-7 text-brand-teal" />
           </div>
-          <span className="text-xl font-bold text-white">AcademiCode</span>
+          <span className="text-xl font-bold text-white">Prep by Arkaserve</span>
         </div>
 
         {/* Tab Toggle */}

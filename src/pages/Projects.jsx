@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
+import { useSEO } from '../hooks/useSEO'
 import { Search, X } from 'lucide-react'
 import ProjectCard from '../components/ProjectCard'
 import { projects, categories, levels } from '../data/projects'
@@ -14,6 +15,11 @@ const SUB_TOPICS = {
 }
 
 export default function Projects() {
+  useSEO({
+    title: 'Browse Engineering Projects',
+    description: 'Explore 500+ engineering final year projects across Machine Learning, Web Development, IoT, Data Science, Cybersecurity, and Mobile Apps with complete source code.',
+    path: '/projects',
+  })
   const [searchParams] = useSearchParams()
   const [query, setQuery] = useState('')
 

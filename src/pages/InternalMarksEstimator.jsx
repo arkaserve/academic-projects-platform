@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react'
 import { Link } from 'react-router-dom'
+import { useSEO } from '../hooks/useSEO'
 import {
   Calendar, FileText, FlaskConical, ClipboardList, Users,
   AlertTriangle, CheckCircle2, Target, ArrowRight, Info,
@@ -162,6 +163,11 @@ function CompCard({ icon: Icon, label, maxPts, earnedPts, pending = false, child
 // ── Main Page ──────────────────────────────────────────────────────────────────
 
 export default function InternalMarksEstimator() {
+  useSEO({
+    title: 'Internal Marks Estimator',
+    description: 'Estimate your internal marks based on attendance percentage, test scores, assignments, and lab records. Free calculator for engineering students.',
+    path: '/internal-marks',
+  })
   const [totalMarks,    setTotalMarks]    = useState(50)
   const [attPct,        setAttPct]        = useState(80)
   const [test1Score,    setTest1Score]    = useState('')

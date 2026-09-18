@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { useSEO } from '../hooks/useSEO'
 import { Check, Zap, BookOpen, Code2, FileDown, Rocket, Phone, Star, Lock, ShoppingCart, Unlock, Repeat2, ChevronDown } from 'lucide-react'
 import { useAuth } from '../context/AuthContext'
 import { useAccess } from '../context/AccessContext'
@@ -71,6 +72,11 @@ const PLANS = [
 // ── Component ─────────────────────────────────────────────────────────────────
 
 export default function Pricing() {
+  useSEO({
+    title: 'Pricing Plans',
+    description: 'Affordable plans for accessing complete engineering project source code, documentation, setup guides, and viva Q&A on Prep by Arkaserve.',
+    path: '/pricing',
+  })
   const { user, token, isLoggedIn } = useAuth()
   const { has_all, project_ids, refresh } = useAccess()
   const [selectedProject, setSelectedProject] = useState('')

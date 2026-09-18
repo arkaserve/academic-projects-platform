@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { useSEO } from '../hooks/useSEO'
 import {
   ArrowRight, Code2, Mic2, GitBranch,
   Zap, Brain,
@@ -72,6 +73,11 @@ const features = [
 
 
 export default function Home() {
+  useSEO({
+    title: 'Engineering Project Hub — Source Code + Viva Q&A',
+    description: 'Download final year engineering projects with complete source code, step-by-step setup guides, and viva Q&A. B.Tech, M.Tech & School level projects in ML, Web Dev, IoT, Data Science, and more.',
+    path: '/',
+  })
   const [visitors, setVisitors] = useState(null)
   useEffect(() => {
     fetch('https://api.counterapi.dev/v1/academicode-ap/home/up')
@@ -223,13 +229,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Why Choose AcademiCode ── */}
+      {/* ── Why Choose Prep by Arkaserve ── */}
       <section className="py-20 bg-slate-50 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Header */}
           <div className="text-center mb-16">
-            <h2 className="section-title">Why Choose AcademiCode?</h2>
+            <h2 className="section-title">Why Choose Prep by Arkaserve?</h2>
             <p className="section-sub max-w-2xl mx-auto">
               We go beyond giving you code — we prepare you to understand, present, and defend it.
               Every project is built to help you succeed not just in submission, but in the viva room.
