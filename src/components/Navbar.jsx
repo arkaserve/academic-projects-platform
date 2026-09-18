@@ -143,7 +143,7 @@ export default function Navbar() {
     { to: 'https://arkaserve.com/#about',     label: 'About',   external: true },
     { to: 'https://arkaserve.com/careers',    label: 'Careers', external: true },
     { to: '/pricing',                          label: 'Pricing' },
-    { to: '/contact',            label: 'Contact' },
+    { to: '/contact',            label: 'Support' },
   ]
 
   const isProjectsActive = pathname === '/projects' || pathname.startsWith('/projects/')

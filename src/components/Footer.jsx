@@ -124,7 +124,7 @@ export default function Footer() {
                 ['About Us',    null,              'https://arkaserve.com/#about'],
                 ['Careers',     null,              'https://arkaserve.com/careers'],
                 ['Pricing',     '/pricing'],
-                ['Contact',     '/contact'],
+                ['Support',     '/contact'],
                 ['Projects',    '/projects'],
                 ['Resume',      '/resume-builder'],
               ].map(([label, to, href]) => (

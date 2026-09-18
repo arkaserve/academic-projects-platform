@@ -14,8 +14,8 @@ const HELP_ITEMS = [
 
 export default function Contact() {
   useSEO({
-    title: 'Contact Us',
-    description: 'Get in touch with the Prep by Arkaserve team for project queries, custom project requests, or any feedback. We respond within 24 hours.',
+    title: 'Project Support',
+    description: 'Get project-specific help from the Prep by Arkaserve team — setup assistance, viva preparation, live debugging, and custom project guidance. We respond within a few hours.',
     path: '/contact',
   })
   return (
@@ -25,11 +25,19 @@ export default function Contact() {
       <div className="hero-bg pt-20 pb-16 px-5">
         <div className="max-w-2xl mx-auto text-center">
           <h1 className="text-3xl sm:text-4xl font-extrabold text-white mb-3 leading-tight">
-            We're Here to Help
+            Project Support
           </h1>
           <p className="text-white/65 text-sm sm:text-base leading-relaxed max-w-lg mx-auto">
             Stuck on setup, need viva prep, or want a custom project? Reach out — we respond within a few hours.
           </p>
+          <a
+            href="https://arkaserve.com/#contact"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 mt-5 text-white/45 hover:text-white/70 text-xs transition"
+          >
+            For general company enquiries → arkaserve.com
+          </a>
         </div>
       </div>
 

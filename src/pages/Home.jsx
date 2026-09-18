@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useSEO } from '../hooks/useSEO'
 import {
@@ -78,14 +77,6 @@ export default function Home() {
     description: 'Download final year engineering projects with complete source code, step-by-step setup guides, and viva Q&A. B.Tech, M.Tech & School level projects in ML, Web Dev, IoT, Data Science, and more.',
     path: '/',
   })
-  const [visitors, setVisitors] = useState(null)
-  useEffect(() => {
-    fetch('https://api.counterapi.dev/v1/academicode-ap/home/up')
-      .then(r => r.json())
-      .then(d => setVisitors(d.count))
-      .catch(() => {})
-  }, [])
-
   return (
     <div>
       <style>{`
