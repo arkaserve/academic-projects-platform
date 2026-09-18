@@ -4,4 +4,4 @@ Allow: /
 Disallow: /login
 Disallow: /admin
 
-Sitemap: https://projects.anilsofttech.com/sitemap.xml
+Sitemap: https://projects.arkaserve.com/sitemap.xml

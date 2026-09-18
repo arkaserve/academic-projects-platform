@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 
 const SITE_NAME = 'Prep by Arkaserve'
-const BASE_URL  = 'https://projects.anilsofttech.com'
+const BASE_URL  = 'https://projects.arkaserve.com'
 const DEFAULT_IMAGE = `${BASE_URL}/og-image.png`
 
 export function useSEO({ title, description, path = '', image }) {
